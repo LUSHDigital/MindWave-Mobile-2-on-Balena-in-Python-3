@@ -1,40 +1,23 @@
-from flask import Flask, render_template, request
-import requests
-from bs4 import BeautifulSoup
-
+import os
+from flask import Flask, redirect, url_for
+import flask_sijax
+from myblueprint import blueprint
 
 app = Flask(__name__)
+
+app.config["SIJAX_STATIC_PATH"] = os.path.join(
+    ".", os.path.dirname(__file__), "static/js/sijax/"
+)
+app.config["SIJAX_JSON_URI"] = "/static/js/sijax/json2.js"
+flask_sijax.Sijax(app)
+
+app.register_blueprint(blueprint)
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
-
-
-@app.route("/suggestions")
-def suggestions():
-    text = request.args.get("jsdata")
-
-    suggestions_list = []
-
-    if text:
-        r = requests.get(
-            "http://suggestqueries.google.com/complete/search?output=toolbar&hl=ru&q={}&gl=in".format(
-                text
-            )
-        )
-
-        soup = BeautifulSoup(r.content, "lxml")
-
-        suggestions = soup.find_all("suggestion")
-
-        for suggestion in suggestions:
-            suggestions_list.append(suggestion.attrs["data"])
-
-        # print(suggestions_list)
-
-    return render_template("suggestions.html", suggestions=suggestions_list)
+    return redirect(url_for("myblueprint.index"))
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run(debug=True, port=5555)
