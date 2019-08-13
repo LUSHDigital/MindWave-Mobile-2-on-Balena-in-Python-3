@@ -16,10 +16,7 @@
 
 ---
 
-<div align="center">
-    Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-mobile) by [@robintibor](https://github.com/robintibor).
-    <br>
-</div>
+Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-mobile) by [@robintibor](https://github.com/robintibor).
 
 ## 📝 Table of Contents
 - [About](#about)
