@@ -21,65 +21,47 @@ Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-
 ## 📝 Table of Contents
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Usage](#usage)
 - [Deployment](#deployment)
+- [Example App](#example_app)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 
-## 🧐 About <a name = "about"></a>
-Write about 1-2 paragraphs describing the purpose of your project.
+## 📖 About <a name = "about"></a>
+A [Balena Engine](https://www.balena.io/engine/) based project to capture [Neurosky Mindwave Mobile](http://developer.neurosky.com/) data streamed via a Raspberry Pi.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+## 👟 Getting Started <a name = "getting_started"></a>
+We suggest getting a copy of this project up and running in [Balena Cloud](https://www.balena.io/cloud/) by following the [Deployment](#deployment) instructions, and then working in [Balena's local development mode](https://www.balena.io/docs/learn/develop/local-mode/) to make your changes using the information list under [Usage](#usage) as a guide.
 
 ### Prerequisites
-What things you need to install the software and how to install them.
 
-```
-Give examples
-```
+• A Raspberry Pi 3 Model B or B+.
+• A 4GB or larger microSD card.
+• A 2A micro USB power supply.
+• A Balena account.
 
-### Installing
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## 🔧 Running the tests <a name = "tests"></a>
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.
 
 ## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system.
+This project can be deployed to Balena Cloud and subsequently your Raspberry Pi devices by following the instructions from the [Balena Docs](https://www.balena.io/docs/learn/getting-started/raspberrypi3/python/), but substituting the "simple-server-python" example project for this one.
+
+## 🧠 Example App <a name="example_app"></a>
+Out of the box, this project comes with a simple web UI for starting, stopping & viewing Mindwave Mobile data readings.
+
+Once deployed, and with the headset set in [pairing mode](http://support.neurosky.com/kb/mindwave-mobile/how-do-i-put-the-mindwave-mobile-into-discovery-mode) visit you devices IP (listed in the Balena Cloud Console).
+
+## ⌨️ Extending & Developing
+Afterward deploying, you can work in [Balena's local development mode](https://www.balena.io/docs/learn/develop/local-mode/) to quickly see changes. The example app hopefully gives a clear base to work from, but for an even simpler example you can try the following to see Mindwave datapoints printed to the console, these will be viewable in the Balena Cloud logs.
+
+```
+from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
+mindwaveDataPointReader = MindwaveDataPointReader()
+# connect to the mindwave mobile headset...
+mindwaveDataPointReader.start()
+# read one data point, data point types are specified in  MindwaveDataPoints.py'
+dataPoint = mindwaveDataPointReader.readNextDataPoint()
+print(dataPoint)
+```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [Python 3](https://www.python.org/download/releases/3.0/) - Language.
