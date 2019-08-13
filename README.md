@@ -23,6 +23,7 @@ Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Example App](#example_app)
+- [Extending & Developing](extending_&amp_developing)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
@@ -50,7 +51,7 @@ Out of the box, this project comes with a simple web UI for starting, stopping &
 
 Once deployed, and with the headset set in [pairing mode](http://support.neurosky.com/kb/mindwave-mobile/how-do-i-put-the-mindwave-mobile-into-discovery-mode) visit you devices IP (listed in the Balena Cloud Console).
 
-## ⌨️ Extending & Developing
+## ⌨️ Extending & Developing <a name="extending_&amp_developing"></a>
 Afterward deploying, you can work in [Balena's local development mode](https://www.balena.io/docs/learn/develop/local-mode/) to quickly see changes. The example app hopefully gives a clear base to work from, but for an even simpler example you can try the following to see Mindwave datapoints printed to the console, these will be viewable in the Balena Cloud logs.
 
 ```
