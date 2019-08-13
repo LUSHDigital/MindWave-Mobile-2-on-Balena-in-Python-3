@@ -17,7 +17,7 @@
 ---
 
 <dive align="center">
-    Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-mobile) by [@robintibor](https://github.com/robintibor).
+    Based on <a href="https://github.com/robintibor/python-mindwave-mobile">python-mindwave-mobile</a> by <a href="https://github.com/robintibor">@robintibor</a>.
     <br>
 </div>
 
