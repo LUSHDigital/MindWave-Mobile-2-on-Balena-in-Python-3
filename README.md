@@ -74,6 +74,6 @@ print(dataPoint)
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@robintibor](https://github.com/robintibor) - Original groundwork, Python 3 and MindWave Mobile 2 integration.
-- [@Simon-Ince](https://github.com/Simon-Ince) - Balena & Raspberry Pi integration + alterations & modifications.
+- [@Simon-Ince](https://github.com/Simon-Ince) - Balena & Raspberry Pi integration + Example App.
 
 See also the list of [contributors](https://github.com/robintibor/python-mindwave-mobile/graphs/contributors) for the original [robintibor/python-mindwave-mobile](https://github.com/robintibor/python-mindwave-mobile) project.
