@@ -23,7 +23,7 @@ Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Example App](#example_app)
-- [Extending & Developing](#extending--developing)
+- [Extending & Developing](#-extending--developing-)
 - [Built Using](#built_using)
 - [TODO](#TODO)
 - [Contributing](../CONTRIBUTING.md)
