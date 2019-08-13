@@ -23,9 +23,9 @@ Based on [python-mindwave-mobile](https://github.com/robintibor/python-mindwave-
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Example App](#example_app)
-- [Extending & Developing](extending_&amp_developing)
+- [Extending & Developing](#extending_&amp_developing)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
+- [TODO](#TODO)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 
@@ -68,6 +68,11 @@ print(dataPoint)
 - [Python 3](https://www.python.org/download/releases/3.0/) - Language.
 - [Balena Engine](https://www.balena.io/engine/) - Container Engine.
 - [PyBluez](https://github.com/pybluez/pybluez) - Python Module.
+
+## 🔧 TODO <a name = "TODO"></a>
+
+- [x] Basics of README.
+- [ ] This TODO list.
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@robintibor](https://github.com/robintibor) - Original groundwork, Python 3 and MindWave Mobile 2 integration.
