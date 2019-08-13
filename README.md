@@ -36,12 +36,12 @@ A [Balena Engine](https://www.balena.io/engine/) based project to capture [Neuro
 We suggest getting a copy of this project up and running in [Balena Cloud](https://www.balena.io/cloud/) by following the [Deployment](#deployment) instructions, and then working in [Balena's local development mode](https://www.balena.io/docs/learn/develop/local-mode/) to make your changes using the information list under [Usage](#usage) as a guide.
 
 ### Prerequisites
-
+<div>
 • A Raspberry Pi 3 Model B or B+.
 • A 4GB or larger microSD card.
 • A 2A micro USB power supply.
 • A Balena account.
-
+</div>
 
 ## 🚀 Deployment <a name = "deployment"></a>
 This project can be deployed to Balena Cloud and subsequently your Raspberry Pi devices by following the instructions from the [Balena Docs](https://www.balena.io/docs/learn/getting-started/raspberrypi3/python/), but substituting the "simple-server-python" example project for this one.
