@@ -20,9 +20,7 @@ def index():
                 yield "%s<br/>\n" % x
 
         result = inner
-    env = Environment(loader=FileSystemLoader(template_dir))
-    tmpl = env.get_template("result.html")
-    return flask.Response(tmpl.generate(result=result if result is None else result()))
+    return render_template("result.html", result=result if result is None else result())
 
 
 if __name__ == "__main__":
