@@ -32,8 +32,10 @@ def json():
 def background_process_test():
     mindwave = start_treatment()
 
-    if mindwave:
-        return render_template("output.html", output=mindwave)
+    print("here:")
+    print(mindwave)
+
+    return render_template("output.html", output=mindwave)
 
 
 @app.route("/")

@@ -23,10 +23,7 @@ $(function () {
     var Status = $(this).val();
     $.ajax({
       url: "/output",
-      data: {
-        text: $("textarea[name=Status]").val(),
-        Status: Status
-      },
+      type: get,
       success: function(response) {
         $("#place_for_suggestions").html(response);
       },
