@@ -59,8 +59,10 @@ def suggestions():
                 text
             )
         )
+        r.encoding = "utf-8"
+        result = r.content
 
-        soup = BeautifulSoup(r.content, "html5lib")
+        soup = BeautifulSoup(page, "lxml")
 
         suggestions = soup.find_all("suggestion")
 
