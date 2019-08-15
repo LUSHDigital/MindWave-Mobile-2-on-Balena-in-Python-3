@@ -1,19 +1,24 @@
-import flask
-import time
+from time import sleep
+from flask import Flask, render_template
+from math import sqrt
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    def inner():
-        for x in range(100):
-            time.sleep(1)
-            yield "%s<br/>\n" % x
+    # render the template (below) that will use JavaScript to read the stream
+    return render_template("index.html")
 
-    return flask.Response(
-        inner(), mimetype="text/html"
-    )  # text/html is required for most browsers to show the partial page immediately
+
+@app.route("/stream_sqrt")
+def stream():
+    def generate():
+        for i in range(500):
+            yield "{}\n".format(sqrt(i))
+            sleep(1)
+
+    return app.response_class(generate(), mimetype="text/plain")
 
 
 if __name__ == "__main__":
