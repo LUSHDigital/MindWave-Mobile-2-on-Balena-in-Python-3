@@ -47,7 +47,7 @@ class RandomThread(Thread):
                             "newnumber", {"output": output}, namespace="/test"
                         )
             else:
-                output = "Exiting because the program could not connect to the Mindwave Mobile device."
+                output = "Could not connect to the Mindwave Mobile device, retrying ..."
 
             socketio.emit("newnumber", {"output": output}, namespace="/test")
             sleep(self.delay)
