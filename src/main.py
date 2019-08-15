@@ -62,7 +62,7 @@ def suggestions():
         r.encoding = "utf-8"
         result = r.content
 
-        soup = BeautifulSoup(page, "lxml")
+        soup = BeautifulSoup(result, "lxml")
 
         suggestions = soup.find_all("suggestion")
 
