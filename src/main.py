@@ -1,24 +1,28 @@
-from time import sleep
-from flask import Flask, render_template
-from math import sqrt
+import flask
+import time
 
-app = Flask(__name__)
+from flask import request
+from jinja2 import Environment
+from jinja2.loaders import FileSystemLoader
+
+app = flask.Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    # render the template (below) that will use JavaScript to read the stream
-    return render_template("index.html")
+    result = None
+    if request.method == "POST":
+        counter = int(request.form.get("counter", 0))
 
+        def inner():
+            for x in range(counter):  # eg: 100 should input value from browser
+                time.sleep(1)
+                yield "%s<br/>\n" % x
 
-@app.route("/stream_sqrt")
-def stream():
-    def generate():
-        for i in range(500):
-            yield "{}\n".format(sqrt(i))
-            sleep(1)
-
-    return app.response_class(generate(), mimetype="text/plain")
+        result = inner
+    env = Environment(loader=FileSystemLoader("templates"))
+    tmpl = env.get_template("result.html")
+    return flask.Response(tmpl.generate(result=result if result is None else result()))
 
 
 if __name__ == "__main__":
