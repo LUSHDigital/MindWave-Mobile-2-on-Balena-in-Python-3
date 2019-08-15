@@ -60,7 +60,7 @@ def suggestions():
             )
         )
 
-        soup = BeautifulSoup(r.content, "lxml")
+        soup = BeautifulSoup(r.content, "html5lib")
 
         suggestions = soup.find_all("suggestion")
 
