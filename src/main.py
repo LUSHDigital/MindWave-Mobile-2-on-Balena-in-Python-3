@@ -51,9 +51,8 @@ class RandomThread(Thread):
         # infinite loop of magical random numbers
         print("Making random numbers")
         while not thread_stop_event.isSet():
-            number = round(random() * 10, 3)
-            print(number)
-            socketio.emit("newnumber", {"number": number}, namespace="/test")
+            output = "Hello"
+            socketio.emit("newnumber", {"output": output}, namespace="/test")
             sleep(self.delay)
 
     def run(self):
