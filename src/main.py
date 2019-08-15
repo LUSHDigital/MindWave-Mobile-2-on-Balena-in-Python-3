@@ -51,7 +51,19 @@ class RandomThread(Thread):
         # infinite loop of magical random numbers
         print("Making random numbers")
         while not thread_stop_event.isSet():
-            output = "Hello"
+            mindwaveDataPointReader = MindwaveDataPointReader()
+            mindwaveDataPointReader.start()
+            if mindwaveDataPointReader.isConnected():
+                while True:
+                    dataPoint = mindwaveDataPointReader.readNextDataPoint()
+                    if not dataPoint.__class__ is RawDataPoint:
+                        output = dataPoint
+                        socketio.emit(
+                            "newnumber", {"output": output}, namespace="/test"
+                        )
+            else:
+                output = "Exiting because the program could not connect to the Mindwave Mobile device."
+
             socketio.emit("newnumber", {"output": output}, namespace="/test")
             sleep(self.delay)
 
