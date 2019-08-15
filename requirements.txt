@@ -4,3 +4,4 @@ pybluez
 requests
 lxml
 et_xmlfile
+shelljob
