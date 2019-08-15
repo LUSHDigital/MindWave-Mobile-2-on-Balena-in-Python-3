@@ -1,6 +1,6 @@
 from flask import Flask, render_template, Response, request, redirect, url_for
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 import time
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
