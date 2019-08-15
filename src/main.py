@@ -1,5 +1,5 @@
-from flask import Flask
 from flask import Flask, render_template, Response, request, redirect, url_for
+from bs4 import BeautifulSoup
 import time
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
@@ -42,8 +42,8 @@ def background_process_test():
 
 
 @app.route("/")
-def hello_world():
-    return "Hello World!"
+def index():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
