@@ -5,12 +5,9 @@ $(document).ready(function(){
 
     //receive details from server
     socket.on('newnumber', function(msg) {
-        console.log("Received number" + msg.number);
+        console.log("Received output" + msg.output);
         //maintain a list of ten numbers
-        if (numbers_received.length >= 10){
-            numbers_received.shift()
-        }
-        numbers_received.push(msg.number);
+        numbers_received.push(msg.output);
         numbers_string = '';
         for (var i = 0; i < numbers_received.length; i++){
             numbers_string = numbers_string + '<p>' + numbers_received[i].toString() + '</p>';
