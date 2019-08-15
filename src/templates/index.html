@@ -1,39 +1,28 @@
-<!DOCTYPE html>
-
 <html>
-
-<head>
-    <title>Suggestions</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
-
-<body>
-<div class='container'>
-    <h3>Test</h3>
-        <form>
-            <a href=# id=test><button class='btn btn-default'>Test</button></a>
-        </form>
-
-</div>
-<div id="place_for_suggestions"></div>
-
-<script>
-$(function () {
-  $("#test").on('click', function () {
-    var Status = $(this).val();
-    $.ajax({
-      url: "/output",
-      type: get,
-      success: function(response) {
-        $("#place_for_suggestions").html(response);
-      },
-      dataType : 'json'
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+   <body>
+     <input type='text' id='word'>
+     <button type='button' id ='retrieve'>Submit</button>
+     <div id='wordResult'></div>
+   </body>
+  <script>
+    $(document).ready(function() {
+       $('#retrieve').click(function(){
+           var word = $('#word').val();
+           $.ajax({
+           url: "/get_word",
+           type: "get",
+           data: {word: word},
+           success: function(response) {
+           $("#wordResult").html(response.html);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
     });
-  });
-});
-
-</script>
-
-</body>
-
+  </script>
 </html>
