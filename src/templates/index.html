@@ -4,32 +4,37 @@
 
 <head>
     <title>Suggestions</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
+<div class='container'>
+    <h3>Test</h3>
+        <form>
+            <a href=# id=test><button class='btn btn-default'>Test</button></a>
+        </form>
 
-Search: <input type="text" id="search_form_input"></input>
-
+</div>
 <div id="place_for_suggestions"></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
 <script>
-$("#search_form_input").keyup(function(){
-    var text = $(this).val();
-
+$(function () {
+  $("#test").on('click', function () {
+    var Status = $(this).val();
     $.ajax({
-      url: "/suggestions",
-      type: "get",
-      data: {jsdata: text},
+      url: ''/output",
+      data: {
+        text: $("textarea[name=Status]").val(),
+        Status: Status
+      },
       success: function(response) {
         $("#place_for_suggestions").html(response);
       },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
+      dataType : 'json'
     });
+  });
 });
+
 </script>
 
 </body>

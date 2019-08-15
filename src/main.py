@@ -15,17 +15,9 @@ def start_treatment():
         while True:
             dataPoint = mindwaveDataPointReader.readNextDataPoint()
             if not dataPoint.__class__ is RawDataPoint:
-                print(dataPoint)
+                return dataPoint
     else:
-        print(
-            (
-                textwrap.dedent(
-                    """\
-            Exiting because the program could not connect
-            to the Mindwave Mobile device."""
-                ).replace("\n", " ")
-            )
-        )
+        return "Exiting because the program could not connect to the Mindwave Mobile device."
 
 
 app = Flask(__name__)
@@ -36,29 +28,17 @@ def json():
     return render_template("json.html")
 
 
-@app.route("/background_process_test")
+@app.route("/output")
 def background_process_test():
-    print("Hello")
-    return "nothing"
+    mindwave = start_treatment()
+
+    if mindwave:
+        return render_template("output.html", output=mindwave)
 
 
 @app.route("/")
 def index():
     return render_template("index.html")
-
-
-@app.route("/suggestions")
-def suggestions():
-    numbers = request.args.get("jsdata")
-
-    number_list = []
-
-    if numbers:
-
-        for number in numbers:
-            number_list.append(number)
-
-    return render_template("suggestions.html", numbers=number_list)
 
 
 if __name__ == "__main__":
