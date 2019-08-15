@@ -14,7 +14,7 @@ def index():
 @app.route("/stream_sqrt")
 def stream():
     def generate():
-        for i in range(500):
+        for i in range(3):
             yield "{}\n".format(sqrt(i))
             sleep(1)
 
