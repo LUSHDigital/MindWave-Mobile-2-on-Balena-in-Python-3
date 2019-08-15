@@ -49,11 +49,11 @@ def index():
 
 @app.route("/suggestions")
 def suggestions():
-    text = request.args.get("jsdata")
+    numbers = request.args.get("jsdata")
 
     number_list = []
 
-    if text:
+    if numbers:
 
         for number in numbers:
             number_list.append(number)
