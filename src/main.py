@@ -51,27 +51,14 @@ def index():
 def suggestions():
     text = request.args.get("jsdata")
 
-    suggestions_list = []
+    number_list = []
 
     if text:
-        r = requests.get(
-            "http://suggestqueries.google.com/complete/search?output=toolbar&hl=ru&q={}&gl=in".format(
-                text
-            )
-        )
-        r.encoding = "utf-8"
-        result = r.content
 
-        soup = BeautifulSoup(result, "lxml")
+        for number in numbers:
+            number_list.append(number)
 
-        suggestions = soup.find_all("suggestion")
-
-        for suggestion in suggestions:
-            suggestions_list.append(suggestion.attrs["data"])
-
-        # print(suggestions_list)
-
-    return render_template("suggestions.html", suggestions=suggestions_list)
+    return render_template("suggestions.html", numbers=number_list)
 
 
 if __name__ == "__main__":
