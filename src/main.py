@@ -1,52 +1,19 @@
-from flask import Flask, render_template, Response, request, redirect, url_for
-import requests
-from bs4 import BeautifulSoup
+import flask
 import time
-import bluetooth
-from mindwavemobile.MindwaveDataPoints import RawDataPoint
-from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
-import textwrap
 
-
-def start_treatment():
-    mindwaveDataPointReader = MindwaveDataPointReader()
-    mindwaveDataPointReader.start()
-    if mindwaveDataPointReader.isConnected():
-        while True:
-            dataPoint = mindwaveDataPointReader.readNextDataPoint()
-            if not dataPoint.__class__ is RawDataPoint:
-                return dataPoint
-    else:
-        return "Exiting because the program could not connect to the Mindwave Mobile device."
-
-
-app = Flask(__name__)
-
-
-@app.route("/json")
-def json():
-    return render_template("json.html")
-
-
-@app.route("/output")
-def background_process_test():
-    mindwave = start_treatment()
-
-    print("here:")
-    print(mindwave)
-
-    return render_template("output.html", output=mindwave)
+app = flask.Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    def inner():
+        for x in range(100):
+            time.sleep(1)
+            yield "%s<br/>\n" % x
 
-
-@app.route("/get_word")
-def get_prediction():
-    word = flask.request.args.get("word")
-    return flask.jsonify({"html": getPrediction(word)})
+    return flask.Response(
+        inner(), mimetype="text/html"
+    )  # text/html is required for most browsers to show the partial page immediately
 
 
 if __name__ == "__main__":
