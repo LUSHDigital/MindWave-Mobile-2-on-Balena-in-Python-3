@@ -3,3 +3,4 @@ beautifulsoup4
 pybluez
 requests
 lxml
+et_xmlfile
