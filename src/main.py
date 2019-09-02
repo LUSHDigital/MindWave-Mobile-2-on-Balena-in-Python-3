@@ -29,12 +29,6 @@ class RandomThread(Thread):
         super(RandomThread, self).__init__()
 
     def randomNumberGenerator(self):
-        """
-        Generate a random number every 1 second and emit to a socketio instance (broadcast)
-        Ideally to be run in a separate thread?
-        """
-        # infinite loop of magical random numbers
-        print("Making random numbers")
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
             mindwaveDataPointReader.start()
@@ -43,6 +37,10 @@ class RandomThread(Thread):
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if not dataPoint.__class__ is RawDataPoint:
                         output = dataPoint
+                        print("output is:")
+                        print(output)
+                        print("output is type:")
+                        isinstance(output)
                         socketio.emit(
                             "newnumber", {"output": output}, namespace="/test"
                         )
