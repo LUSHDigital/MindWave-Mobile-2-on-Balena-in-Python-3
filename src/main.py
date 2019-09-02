@@ -41,9 +41,9 @@ class RandomThread(Thread):
                         print(output)
                         print("output is type:")
                         type(output)
-                        socketio.emit(
-                            "newnumber", {"output": output}, namespace="/test"
-                        )
+                        # socketio.emit(
+                        #     "newnumber", {"output": output}, namespace="/test"
+                        # )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
 
