@@ -40,7 +40,7 @@ class RandomThread(Thread):
                         print("output is:")
                         print(output)
                         print("output is type:")
-                        isinstance(output)
+                        type(output)
                         socketio.emit(
                             "newnumber", {"output": output}, namespace="/test"
                         )
