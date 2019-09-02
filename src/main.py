@@ -36,8 +36,10 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if not dataPoint.__class__ is RawDataPoint:
-                        print("dataPoint is type:")
-                        type(dataPoint)
+                        output = str(dataPoint)
+                        print(output)
+                        print("output is type:")
+                        type(output)
                         # socketio.emit(
                         #     "newnumber", {"output": output}, namespace="/test"
                         # )
