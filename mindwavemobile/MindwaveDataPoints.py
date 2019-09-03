@@ -105,13 +105,13 @@ class EEGPowersDataPoint(DataPoint):
     def __str__(self):
         return str(
             [
-                {self.delta},
-                {self.theta},
-                {self.lowAlpha},
-                {self.highAlpha},
-                {self.lowBeta},
-                {self.highBeta},
-                {self.lowGamma},
-                {self.midGamma},
+                self.delta,
+                self.theta,
+                self.lowAlpha,
+                self.highAlpha,
+                self.lowBeta,
+                self.highBeta,
+                self.lowGamma,
+                self.midGamma,
             ]
         )
