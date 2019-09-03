@@ -103,15 +103,13 @@ class EEGPowersDataPoint(DataPoint):
         return bigEndianInteger
 
     def __str__(self):
-        return """EEG Powers:
-                delta: {self.delta}
-                theta: {self.theta}
-                lowAlpha: {self.lowAlpha}
-                highAlpha: {self.highAlpha}
-                lowBeta: {self.lowBeta}
-                highBeta: {self.highBeta}
-                lowGamma: {self.lowGamma}
-                midGamma: {self.midGamma}
-                """.format(
-            self=self
-        )
+        return [
+            {self.delta},
+            {self.theta},
+            {self.lowAlpha},
+            {self.highAlpha},
+            {self.lowBeta},
+            {self.highBeta},
+            {self.lowGamma},
+            {self.midGamma},
+        ]
