@@ -9,8 +9,6 @@ from mindwavemobile.MindwaveDataPoints import RawDataPoint
 from mindwavemobile.MindwaveDataPoints import EEGPowersDataPoint
 from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
 import matplotlib.pyplot as plt
-
-plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
 
