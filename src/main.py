@@ -8,6 +8,11 @@ import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
 from mindwavemobile.MindwaveDataPoints import EEGPowersDataPoint
 from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
+import matplotlib.pyplot as plt
+
+plt.rcdefaults()
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 __author__ = "slynn"
@@ -40,9 +45,9 @@ class RandomThread(Thread):
                         preOutput = str(dataPoint)
                         output = [int(x) for x in preOutput.split(",")]
                         print(output)
-                        # socketio.emit(
-                        #     "newnumber", {"output": output}, namespace="/test"
-                        # )
+                        socketio.emit(
+                            "newnumber", {"output": output}, namespace="/test"
+                        )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
 
