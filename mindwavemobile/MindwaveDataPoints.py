@@ -103,7 +103,7 @@ class EEGPowersDataPoint(DataPoint):
         return bigEndianInteger
 
     def __str__(self):
-        return list(
+        return str(
             [
                 {self.delta},
                 {self.theta},
