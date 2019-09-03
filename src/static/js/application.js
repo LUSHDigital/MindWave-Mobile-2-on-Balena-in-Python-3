@@ -13,6 +13,7 @@ $(document).ready(function(){
             numbers_string = numbers_string + '<p>' + numbers_received[i] + '</p>';
         }
         $('#log').html(numbers_string);
+        $('#chart').html(<img src="foo.jpg" alt="MidWave Bar Chart">);
     });
 
 });
