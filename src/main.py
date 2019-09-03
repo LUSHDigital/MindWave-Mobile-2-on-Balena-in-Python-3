@@ -37,11 +37,11 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
-                        output = "-".join([str(elem) for elem in dataPoint])
-                        print(output)
-                        socketio.emit(
-                            "newnumber", {"output": output}, namespace="/test"
-                        )
+
+                        type(dataPoint)
+                        # socketio.emit(
+                        #     "newnumber", {"output": output}, namespace="/test"
+                        # )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
 
