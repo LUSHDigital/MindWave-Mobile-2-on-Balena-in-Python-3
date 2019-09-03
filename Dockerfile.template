@@ -4,7 +4,7 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-stretch-run
 
 # use `install_packages` if you need to install dependencies,
 # for instance if you need git, just uncomment the line below.
-RUN install_packages gcc g++ libxslt-dev python-dev python3-lxml python-bluetooth libbluetooth-dev mercurial libxml2-dev python3-matplotlib pkg-config build-essential python-distlib python-setuptools python-pip python-wheel libzmq-dev libgdal-dev python-numpy
+RUN install_packages gcc g++ libxslt-dev python-dev python3-lxml python-bluetooth libbluetooth-dev mercurial libxml2-dev
 
 # Set our working directory
 WORKDIR /usr/src/app

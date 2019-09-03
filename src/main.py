@@ -8,8 +8,6 @@ import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
 from mindwavemobile.MindwaveDataPoints import EEGPowersDataPoint
 from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
-import numpy as np
-import matplotlib.pyplot as plt
 
 
 app = Flask(__name__)
@@ -40,28 +38,6 @@ class RandomThread(Thread):
                         preOutput = str(dataPoint)
                         output = [int(x) for x in preOutput.split(",")]
                         print(output)
-
-                        bars = (
-                            "delta",
-                            "theta",
-                            "lowAlpha",
-                            "highAlpha",
-                            "lowBeta",
-                            "highBeta",
-                            "lowGamma",
-                            "midGamma",
-                        )
-                        y_pos = np.arange(len(bars))
-
-                        # Create bars
-                        plt.bar(y_pos, output)
-
-                        # Create names on the x-axis
-                        plt.xticks(y_pos, bars, color="orange")
-                        plt.yticks(color="orange")
-
-                        # Show graphic
-                        plt.savefig("foo.png")
                         socketio.emit(
                             "newnumber", {"output": output}, namespace="/test"
                         )
