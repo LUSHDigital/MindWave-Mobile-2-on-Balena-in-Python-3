@@ -37,7 +37,8 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
-                        print(dataPoint)
+                        output = dataPoint.split(",")
+                        print(output)
                         # socketio.emit(
                         #     "newnumber", {"output": output}, namespace="/test"
                         # )
