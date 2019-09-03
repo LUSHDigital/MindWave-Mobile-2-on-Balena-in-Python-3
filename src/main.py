@@ -6,6 +6,7 @@ from threading import Thread, Event
 import time
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
+from mindwavemobile.MindwaveDataPoints import EEGPowersDataPoint
 from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
 
 
