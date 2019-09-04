@@ -38,7 +38,7 @@ class RandomThread(Thread):
                     if dataPoint.__class__ is EEGPowersDataPoint:
                         preOutput = str(dataPoint)
                         output = [int(x) for x in preOutput.split(",")]
-                        for index, num in enumerate(num, start=0):
+                        for index, num in enumerate(output, start=0):
                             item = matrix[index]
                             item.append(num)
                             matrix[index] = item
