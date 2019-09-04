@@ -102,7 +102,7 @@ class EEGPowersDataPoint(DataPoint):
         )
         return bigEndianInteger
 
-    def __repr__(self):
+    def __str__(self):
         output = []
         output.append(self.delta)
         output.append(self.theta)
@@ -113,4 +113,4 @@ class EEGPowersDataPoint(DataPoint):
         output.append(self.lowGamma)
         output.append(self.midGamma)
 
-        return output
+        return str(output)
