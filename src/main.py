@@ -36,7 +36,7 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
-                        preOutput = dataPoint
+                        preOutput = str(dataPoint)
                         print("preOutput")
                         print(preOutput)
                         output = [int(x) for x in preOutput.split(",")]
