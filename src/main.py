@@ -44,6 +44,8 @@ class RandomThread(Thread):
                         print(output)
                         for index, num in enumerate(output, start=0):
                             item = matrix[index]
+                            if len(item) > 5:
+                                item = item[-5:]
                             item.append(num)
                             matrix[index] = item
                         print(matrix)
