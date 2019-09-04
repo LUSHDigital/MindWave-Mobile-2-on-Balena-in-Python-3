@@ -113,4 +113,4 @@ class EEGPowersDataPoint(DataPoint):
         output.append(self.lowGamma)
         output.append(self.midGamma)
 
-        return str(*output, sep=",")
+        return ",".join(map(str, output))
