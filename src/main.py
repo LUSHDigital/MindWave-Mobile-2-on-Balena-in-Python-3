@@ -28,6 +28,7 @@ class RandomThread(Thread):
         super(RandomThread, self).__init__()
 
     def randomNumberGenerator(self):
+        matrix = [[], [], [], [], [], [], [], []]
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
             mindwaveDataPointReader.start()
@@ -37,9 +38,13 @@ class RandomThread(Thread):
                     if dataPoint.__class__ is EEGPowersDataPoint:
                         preOutput = str(dataPoint)
                         output = [int(x) for x in preOutput.split(",")]
-                        print(output)
+                        for index, num in enumerate(num, start=0):
+                            item = matrix[index]
+                            item.append(num)
+                            matrix[index] = item
+                        print(matrix)
                         socketio.emit(
-                            "newnumber", {"output": output}, namespace="/test"
+                            "newnumber", {"output": matrix}, namespace="/test"
                         )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
