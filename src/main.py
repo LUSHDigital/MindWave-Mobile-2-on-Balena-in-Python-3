@@ -37,18 +37,16 @@ class RandomThread(Thread):
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
                         preOutput = str(dataPoint)
-                        print("preOutput")
-                        print(preOutput)
+                        print("preOutput:" + preOutput)
                         output = [int(x) for x in preOutput.split(",")]
-                        print("output")
-                        print(output)
+                        print("output:" + output)
                         for index, num in enumerate(output, start=0):
                             item = matrix[index]
                             if len(item) > 5:
                                 item = item[-5:]
                             item.append(num)
                             matrix[index] = item
-                        print(matrix)
+                        print("matrix:" + matrix)
                         socketio.emit(
                             "newnumber", {"output": matrix}, namespace="/test"
                         )
