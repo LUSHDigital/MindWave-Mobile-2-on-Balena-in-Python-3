@@ -27,7 +27,7 @@ class RandomThread(Thread):
         self.delay = 1
         super(RandomThread, self).__init__()
 
-    def randomNumberGenerator(self):
+    def mindwaveArray(self):
         matrix = [[], [], [], [], [], [], [], []]
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
@@ -57,7 +57,7 @@ class RandomThread(Thread):
             sleep(self.delay)
 
     def run(self):
-        self.randomNumberGenerator()
+        self.mindwaveArray()
 
 
 @app.route("/")

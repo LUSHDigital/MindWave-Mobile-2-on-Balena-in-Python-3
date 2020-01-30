@@ -104,13 +104,13 @@ class EEGPowersDataPoint(DataPoint):
 
     def __str__(self):
         output = []
-        output.append(self.delta)
-        output.append(self.theta)
-        output.append(self.lowAlpha)
-        output.append(self.highAlpha)
-        output.append(self.lowBeta)
-        output.append(self.highBeta)
-        output.append(self.lowGamma)
-        output.append(self.midGamma)
+        output.append("delta: " + self.delta)
+        output.append("theta: " + self.theta)
+        output.append("lowAlpha: " + self.lowAlpha)
+        output.append("highAlpha: " + self.highAlpha)
+        output.append("lowBeta: " + self.lowBeta)
+        output.append("highBeta: " + self.highBeta)
+        output.append("lowGamma: " + self.lowGamma)
+        output.append("midGamma: " + self.midGamma)
 
         return ",".join(map(str, output))
