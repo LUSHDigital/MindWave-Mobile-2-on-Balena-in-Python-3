@@ -36,19 +36,19 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
-                        preOutput = str(dataPoint)
-                        print("preOutput:" + preOutput)
-                        output = [int(x) for x in preOutput.split(",")]
+                        # preOutput = str(dataPoint)
+                        # print("preOutput:" + preOutput)
+                        # output = [int(x) for x in preOutput.split(",")]
                         print("output:" + output)
-                        for index, num in enumerate(output, start=0):
-                            item = matrix[index]
-                            if len(item) > 5:
-                                item = item[-5:]
-                            item.append(num)
-                            matrix[index] = item
-                        print("matrix:" + matrix)
+                        # for index, num in enumerate(output, start=0):
+                        #     item = matrix[index]
+                        #     if len(item) > 5:
+                        #         item = item[-5:]
+                        #     item.append(num)
+                        #     matrix[index] = item
+                        # print("matrix:" + matrix)
                         socketio.emit(
-                            "newnumber", {"output": matrix}, namespace="/test"
+                            "newnumber", {"output": output}, namespace="/test"
                         )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
