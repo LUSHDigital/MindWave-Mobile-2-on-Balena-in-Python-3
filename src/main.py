@@ -46,9 +46,10 @@ class RandomThread(Thread):
                     if dataPoint.__class__ is EEGPowersDataPoint:
                         newData = dataPoint.__dict__
                         for k, v in newData.items():
-                            print("output[k]")
-                            print(output[k])
-                            output[k].append(v)
+                            if k in output.keys():
+                                output[k].append(v)
+                                print("output[k]")
+                                print(output[k])
                         socketio.emit(
                             "newnumber", {"output": output}, namespace="/test"
                         )
