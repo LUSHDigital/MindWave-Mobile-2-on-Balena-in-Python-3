@@ -47,9 +47,9 @@ class RandomThread(Thread):
                         #     item.append(num)
                         #     matrix[index] = item
                         # print("matrix:" + matrix)
-                        socketio.emit(
-                            "newnumber", {"output": output}, namespace="/test"
-                        )
+                        # socketio.emit(
+                        #     "newnumber", {"output": output}, namespace="/test"
+                        # )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
 
