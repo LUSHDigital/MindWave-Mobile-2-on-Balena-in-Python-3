@@ -14,9 +14,9 @@ $(document).ready(function(){
     // }
     // $('#log').html(numbers_string);
 
-    console.log(msg.output);
-    // chartData = JSON.parse(msg.output);
-    // console.log(chartData);
+    // console.log(msg.output);
+    chartData = JSON.parse(msg.output);
+    console.log(chartData);
     //
     // new Chart(document.getElementById("line-chart"), {
     //   type: 'line',
