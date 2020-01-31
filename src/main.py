@@ -36,10 +36,10 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
-                        output = str(dataPoint)
+                        print("Datapoint Dict:")
+                        print(dataPoint.__dict__)
                         # print("preOutput:" + preOutput)
                         # output = [int(x) for x in preOutput.split(",")]
-                        print("output:" + output)
                         # for index, num in enumerate(output, start=0):
                         #     item = matrix[index]
                         #     if len(item) > 5:
