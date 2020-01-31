@@ -29,6 +29,7 @@ class RandomThread(Thread):
 
     def mindwaveArray(self):
         output = {
+            "delta": [],
             "theta": [],
             "lowAlpha": [],
             "highAlpha": [],
