@@ -15,7 +15,7 @@ $(document).ready(function(){
     // $('#log').html(numbers_string);
 
     chartData = JSON.parse(msg.output);
-    console.log(p);
+    console.log(chartData);
 
     new Chart(document.getElementById("line-chart"), {
       type: 'line',
