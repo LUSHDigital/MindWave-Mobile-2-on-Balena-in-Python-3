@@ -48,10 +48,10 @@ class RandomThread(Thread):
                         for k, v in newData.items():
                             if k in output.keys():
                                 output[k].append(v)
-                                print("output[k]")
-                                print(output[k])
+                                print("output")
+                                print(output)
                         socketio.emit(
-                            "newnumber", {"output": output}, namespace="/test"
+                            "newnumber", {"output": str(output)}, namespace="/test"
                         )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
