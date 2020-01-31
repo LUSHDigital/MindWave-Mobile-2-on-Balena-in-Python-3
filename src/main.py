@@ -28,7 +28,15 @@ class RandomThread(Thread):
         super(RandomThread, self).__init__()
 
     def mindwaveArray(self):
-        matrix = [[], [], [], [], [], [], [], []]
+        output = {
+            "theta": [],
+            "lowAlpha": [],
+            "highAlpha": [],
+            "lowBeta": [],
+            "highBeta": [],
+            "lowGamma": [],
+            "midGamma": [],
+        }
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
             mindwaveDataPointReader.start()
@@ -36,18 +44,10 @@ class RandomThread(Thread):
                 while True:
                     dataPoint = mindwaveDataPointReader.readNextDataPoint()
                     if dataPoint.__class__ is EEGPowersDataPoint:
-                        my_dict = {1: "apple", 2: "ball"}
-                        output = {
-                            "theta": [],
-                            "lowAlpha": [],
-                            "highAlpha": [],
-                            "lowBeta": [],
-                            "highBeta": [],
-                            "lowGamma": [],
-                            "midGamma": [],
-                        }
-                        output = dataPoint.__dict__
-                        for k, v in output.items():
+                        newData = dataPoint.__dict__
+                        for k, v in newData.items():
+                            print("output[k]")
+                            print(output[k])
                             output[k].append(v)
                         socketio.emit(
                             "newnumber", {"output": output}, namespace="/test"
