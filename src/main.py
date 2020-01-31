@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, copy_current_request_context
 from random import random
 from time import sleep
 from threading import Thread, Event
+import json
 import time
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
@@ -49,10 +50,10 @@ class RandomThread(Thread):
                         for k, v in newData.items():
                             if k in output.keys():
                                 output[k].append(v)
-                                print("output")
-                                print(output)
                         socketio.emit(
-                            "newnumber", {"output": str(output)}, namespace="/test"
+                            "newnumber",
+                            {"output": json.dumps(appDict)},
+                            namespace="/test",
                         )
             else:
                 output = "Could not connect to the Mindwave Mobile device, retrying ..."
