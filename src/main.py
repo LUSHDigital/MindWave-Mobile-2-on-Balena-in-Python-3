@@ -52,7 +52,7 @@ class RandomThread(Thread):
                                 output[k].append(v)
                         socketio.emit(
                             "newnumber",
-                            {"output": json.dumps(appDict)},
+                            {"output": json.dumps(output)},
                             namespace="/test",
                         )
             else:
