@@ -5,7 +5,6 @@ from time import sleep
 from threading import Thread, Event
 import json
 import time
-from queue import Queue
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
 from mindwavemobile.MindwaveDataPoints import EEGPowersDataPoint
@@ -31,14 +30,14 @@ class RandomThread(Thread):
 
     def mindwaveArray(self):
         output = {
-            "delta": Queue(maxsize=10),
-            "theta": Queue(maxsize=10),
-            "lowAlpha": Queue(maxsize=10),
-            "highAlpha": Queue(maxsize=10),
-            "lowBeta": Queue(maxsize=10),
-            "highBeta": Queue(maxsize=10),
-            "lowGamma": Queue(maxsize=10),
-            "midGamma": Queue(maxsize=10),
+            "delta": deque(maxlen=10),
+            "theta": deque(maxlen=10),
+            "lowAlpha": deque(maxlen=10),
+            "highAlpha": deque(maxlen=10),
+            "lowBeta": deque(maxlen=10),
+            "highBeta": deque(maxlen=10),
+            "lowGamma": deque(maxlen=10),
+            "midGamma": deque(maxlen=10),
         }
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
@@ -50,7 +49,7 @@ class RandomThread(Thread):
                         newData = dataPoint.__dict__
                         for k, v in newData.items():
                             if k in output.keys():
-                                output[k].put(v)
+                                output[k].extend(v)
                         socketio.emit(
                             "newnumber",
                             {"output": json.dumps(output)},
