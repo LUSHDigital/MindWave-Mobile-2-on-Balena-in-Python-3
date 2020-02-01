@@ -50,7 +50,7 @@ class RandomThread(Thread):
                         newData = dataPoint.__dict__
                         for k, v in newData.items():
                             if k in output.keys():
-                                output[k].extend(v)
+                                output[k].appendleft(v)
                         socketio.emit(
                             "newnumber",
                             {"output": json.dumps(output)},
