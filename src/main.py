@@ -4,7 +4,7 @@ from random import random
 from time import sleep
 from threading import Thread, Event
 from collections import deque
-import json
+from superjson import json
 import time
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
