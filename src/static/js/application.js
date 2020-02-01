@@ -23,42 +23,42 @@ $(document).ready(function(){
       data: {
         labels: [9,8,7,6,5,4,3,2,1,0],
         datasets: [{
-            data: chartData.delta,
+            data: chartData.delta[""$collections.deque""],
             label: "Delta",
             borderColor: "#3e95cd",
             fill: false
           }, {
-            data: chartData.theta,
+            data: chartData.theta[""$collections.deque""],
             label: "Theta",
             borderColor: "#8e5ea2",
             fill: false
           }, {
-            data: chartData.lowAlpha,
+            data: chartData.lowAlpha[""$collections.deque""],
             label: "lowAlpha",
             borderColor: "#3cba9f",
             fill: false
           }, {
-            data: chartData.highAlpha,
+            data: chartData.highAlpha[""$collections.deque""],
             label: "highAlpha",
             borderColor: "#e8c3b9",
             fill: false
           }, {
-            data: chartData.lowBeta,
+            data: chartData.lowBeta[""$collections.deque""],
             label: "lowBeta",
             borderColor: "#c45850",
             fill: false
           }, {
-            data: chartData.highBeta,
+            data: chartData.highBeta[""$collections.deque""],
             label: "highBeta",
             borderColor: "#c45850",
             fill: false
           }, {
-            data: chartData.lowGamma,
+            data: chartData.lowGamma[""$collections.deque""],
             label: "lowGamma",
             borderColor: "#c45850",
             fill: false
           }, {
-            data: chartData.midGamma,
+            data: chartData.midGamma[""$collections.deque""],
             label: "midGamma",
             borderColor: "#c45850",
             fill: false
