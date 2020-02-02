@@ -6,6 +6,7 @@ from threading import Thread, Event
 from collections import deque
 from superjson import json
 import time
+import copy
 import bluetooth
 from mindwavemobile.MindwaveDataPoints import RawDataPoint
 from mindwavemobile.MindwaveDataPoints import EEGPowersDataPoint
@@ -51,7 +52,7 @@ class RandomThread(Thread):
                         for k, v in newData.items():
                             if k in output.keys():
                                 output[k].appendleft(v)
-                        prepData = output
+                        prepData = copy.deepcopy(output)
                         for k, v in prepData.items():
                             prepData[k] = list(v)
                         socketio.emit(
