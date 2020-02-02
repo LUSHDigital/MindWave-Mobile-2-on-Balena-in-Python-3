@@ -23,42 +23,42 @@ $(document).ready(function(){
       data: {
         labels: [9,8,7,6,5,4,3,2,1,0],
         datasets: [{
-            data: chartData.delta.*.*,
+            data: Object.values(chartData.delta),
             label: "Delta",
             borderColor: "#3e95cd",
             fill: false
           }, {
-            data: chartData.theta.*.*,
+            data: Object.values(chartData.theta),
             label: "Theta",
             borderColor: "#8e5ea2",
             fill: false
           }, {
-            data: chartData.lowAlpha.*.*,
+            data: Object.values(chartData.lowAlpha),
             label: "lowAlpha",
             borderColor: "#3cba9f",
             fill: false
           }, {
-            data: chartData.highAlpha.*.*,
+            data: Object.values(chartData.highAlpha),
             label: "highAlpha",
             borderColor: "#e8c3b9",
             fill: false
           }, {
-            data: chartData.lowBeta.*.*,
+            data: Object.values(chartData.lowBeta),
             label: "lowBeta",
             borderColor: "#c45850",
             fill: false
           }, {
-            data: chartData.highBeta.*.*,
+            data: Object.values(chartData.highBeta),
             label: "highBeta",
             borderColor: "#c45850",
             fill: false
           }, {
-            data: chartData.lowGamma.*.*,
+            data: Object.values(chartData.lowGamma),
             label: "lowGamma",
             borderColor: "#c45850",
             fill: false
           }, {
-            data: chartData.midGamma.*.*,
+            data: Object.values(chartData.midGamma),
             label: "midGamma",
             borderColor: "#c45850",
             fill: false
