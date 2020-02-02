@@ -52,9 +52,8 @@ class RandomThread(Thread):
                             if k in output.keys():
                                 output[k].appendleft(v)
                         prepData = output
-                        for dicts in prepData:
-                            for keys in dicts:
-                                dicts[keys] = list(dicts[keys])
+                        for k, v in prepData.items():
+                            prepData[k] = list(v)
                         socketio.emit(
                             "newnumber",
                             {"output": json.dumps(prepData)},
