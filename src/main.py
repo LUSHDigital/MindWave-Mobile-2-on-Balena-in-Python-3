@@ -24,24 +24,6 @@ thread = Thread()
 thread_stop_event = Event()
 
 
-class Wave:
-    def __init__(self):
-        self.data = deque(maxlen=10)
-
-    def __str__(self):
-        return str(list(self.data))
-
-
-delta = Wave()
-theta = Wave()
-lowAlpha = Wave()
-highAlpha = Wave()
-lowBeta = Wave()
-highBeta = Wave()
-lowGamma = Wave()
-midGamma = Wave()
-
-
 class RandomThread(Thread):
     def __init__(self):
         self.delay = 1
@@ -49,14 +31,14 @@ class RandomThread(Thread):
 
     def mindwaveArray(self):
         output = {
-            "delta": delta,
-            "theta": theta,
-            "lowAlpha": lowAlpha,
-            "highAlpha": highAlpha,
-            "lowBeta": lowBeta,
-            "highBeta": highBeta,
-            "lowGamma": lowGamma,
-            "midGamma": midGamma,
+            "delta": deque(maxlen=10),
+            "theta": deque(maxlen=10),
+            "lowAlpha": deque(maxlen=10),
+            "highAlpha": deque(maxlen=10),
+            "lowBeta": deque(maxlen=10),
+            "highBeta": deque(maxlen=10),
+            "lowGamma": deque(maxlen=10),
+            "midGamma": deque(maxlen=10),
         }
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
@@ -69,9 +51,13 @@ class RandomThread(Thread):
                         for k, v in newData.items():
                             if k in output.keys():
                                 output[k].appendleft(v)
+                        prepData = output
+                        for dicts in prepData:
+                            for keys in dicts:
+                                dicts[keys] = list(dicts[keys])
                         socketio.emit(
                             "newnumber",
-                            {"output": json.dumps(output)},
+                            {"output": json.dumps(prepData)},
                             namespace="/test",
                         )
             else:
