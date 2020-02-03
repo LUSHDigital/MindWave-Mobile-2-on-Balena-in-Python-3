@@ -6,7 +6,7 @@ $(document).ready(function(){
   var chart = new Chart(document.getElementById("line-chart"), {
     type: 'line',
     data: {
-      labels: [39,38,37,36,35,34,33,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0],
+      labels: [29,28,27,26,25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0],
       datasets: [
         {
           data: [],
@@ -77,7 +77,7 @@ $(document).ready(function(){
     });
 
     chart.data.datasets.forEach(dataset => {
-      if (dataset.data.length === 41) {
+      if (dataset.data.length === 31) {
         dataset.data.shift();
       }
     });
