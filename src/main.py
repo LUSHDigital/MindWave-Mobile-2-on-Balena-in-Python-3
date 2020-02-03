@@ -32,14 +32,14 @@ class RandomThread(Thread):
 
     def mindwaveArray(self):
         output = {
-            "delta": deque(maxlen=10),
-            "theta": deque(maxlen=10),
-            "lowAlpha": deque(maxlen=10),
-            "highAlpha": deque(maxlen=10),
-            "lowBeta": deque(maxlen=10),
-            "highBeta": deque(maxlen=10),
-            "lowGamma": deque(maxlen=10),
-            "midGamma": deque(maxlen=10),
+            "delta": deque(maxlen=20),
+            "theta": deque(maxlen=20),
+            "lowAlpha": deque(maxlen=20),
+            "highAlpha": deque(maxlen=20),
+            "lowBeta": deque(maxlen=20),
+            "highBeta": deque(maxlen=20),
+            "lowGamma": deque(maxlen=20),
+            "midGamma": deque(maxlen=20),
         }
         while not thread_stop_event.isSet():
             mindwaveDataPointReader = MindwaveDataPointReader()
