@@ -11,7 +11,8 @@ $(document).ready(function(){
     options: {
       animation: {
         duration: 0
-      })
+      }
+    }
   });
 
     //receive details from server
