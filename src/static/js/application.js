@@ -59,9 +59,11 @@ $(document).ready(function(){
       ]
     },
     options: {
-      animation: {
-        duration: 0
-      }
+        animation: {
+            onProgress: function(animation) {
+                progress.value = animation.animationObject.currentStep / animation.animationObject.numSteps;
+            }
+        }
     }
   });
 
