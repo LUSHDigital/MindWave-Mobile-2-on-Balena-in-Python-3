@@ -1,5 +1,3 @@
-$(document).ready(function(){
-
 var samples = 20;
 var speed = 250;
 let timeout = samples * speed;
@@ -62,8 +60,6 @@ var value = 0;
 var scale = 1;
 
 addEmptyValues(values, samples);
-
-
 
 var originalCalculateXLabelRotation = Chart.Scale.prototype.calculateXLabelRotation
 
@@ -150,5 +146,4 @@ socket.on('newnumber', function(msg) {
     }
   });
   updateCharts();
-});
 });
