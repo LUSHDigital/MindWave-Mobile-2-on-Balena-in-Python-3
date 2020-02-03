@@ -100,19 +100,9 @@ function initialize() {
   }));
 }
 
-function addEmptyValues(arr, n) {
-  for(var i = 0; i < n; i++) {
-    arr.push({
-      x: moment().subtract((n - i) * speed, 'milliseconds').toDate(),
-      y: null
-    });
-  }
-}
-
 function rescale() {
   var padding = [];
 
-  addEmptyValues(padding, 10);
   values.splice.apply(values, padding);
 
   scale++;
