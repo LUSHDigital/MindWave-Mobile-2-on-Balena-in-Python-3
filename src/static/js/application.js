@@ -59,8 +59,6 @@ var charts = [];
 var value = 0;
 var scale = 1;
 
-addEmptyValues(values, samples);
-
 var originalCalculateXLabelRotation = Chart.Scale.prototype.calculateXLabelRotation
 
 function initialize() {
