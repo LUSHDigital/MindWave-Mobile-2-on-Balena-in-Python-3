@@ -1,3 +1,5 @@
+var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+
 var samples = 20;
 var speed = 250;
 let timeout = samples * speed;
