@@ -3,26 +3,26 @@ $(document).ready(function(){
   var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
   var numbers_received = [];
 
-  //receive details from server
-  socket.on('newnumber', function(msg) {
-    // console.log("Received output" + msg.output);
-    // //maintain a list of ten numbers
-    // numbers_received.push(msg.output);
-    // numbers_string = '';
-    // for (var i = 0; i < numbers_received.length; i++){
-    //     numbers_string = numbers_string + '<p>' + numbers_received[i] + '</p>';
-    // }
-    // $('#log').html(numbers_string);
+  var chart = new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    data: {
+      labels: [9,8,7,6,5,4,3,2,1,0]
+    },
+    options: {
+      animation: {
+        duration: 0
+      }
+  });
 
-    // console.log(msg.output);
-    chartData = JSON.parse(msg.output);
-    console.log(chartData);
+    //receive details from server
+    socket.on('newnumber', function(msg) {
+      chartData = JSON.parse(msg.output);
+      console.log(chartData);
 
-    new Chart(document.getElementById("line-chart"), {
-      type: 'line',
-      data: {
-        labels: [9,8,7,6,5,4,3,2,1,0],
-        datasets: [{
+
+      // function addData(chart, label, data) {
+        // chart.data.labels.push(label);
+        chart.data.datasets = [{
             data: Object.values(chartData.delta),
             label: "Delta",
             borderColor: "#3e95cd",
@@ -63,8 +63,12 @@ $(document).ready(function(){
             borderColor: "#c45850",
             fill: false
           }
-        ]
-      }
-    });
+        ];
+        chart.options = {
+          animation: {
+            duration: 0
+          }
+        };
+        chart.update();
   });
 });
